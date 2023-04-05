@@ -1,4 +1,4 @@
-package silverstar.gold.mytools.nsetedscrollview.sample
+package silverstar.gold.mytools.nestedscrollview.sample
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -17,8 +17,8 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.pagerTabIndicatorOffset
 import com.google.accompanist.pager.rememberPagerState
 import kotlinx.coroutines.launch
-import silverstar.gold.mytools.nsetedscrollview.VerticalNestedScrollView
-import silverstar.gold.mytools.nsetedscrollview.rememberNestedScrollViewState
+import silverstar.gold.mytools.nestedscrollview.VerticalNestedScrollView
+import silverstar.gold.mytools.nestedscrollview.rememberNestedScrollViewState
 
 class NestedSampleActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterialApi::class, ExperimentalPagerApi::class)
@@ -48,6 +48,7 @@ fun App() {
             val scope = rememberCoroutineScope()
             val nestedScrollViewState = rememberNestedScrollViewState()
             VerticalNestedScrollView(
+                modifier = Modifier.padding(top = it.calculateTopPadding()),
                 state = nestedScrollViewState,
                 header = {
                     Surface(
@@ -76,8 +77,8 @@ fun App() {
                     }
                 },
                 content = {
-                    val pagerState = rememberPagerState(pageCount = 5)
-                    val pages = (0..4).map { it }
+                    val pagerState = rememberPagerState()
+                    val pages = (0..4).toList()
                     Column {
                         TabRow(
                             selectedTabIndex = pagerState.currentPage,
@@ -101,7 +102,8 @@ fun App() {
                         }
                         HorizontalPager(
                             modifier = Modifier.weight(1f),
-                            state = pagerState
+                            state = pagerState,
+                            count = pages.size,
                         ) {
                             LazyColumn {
                                 items(100) {

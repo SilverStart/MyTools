@@ -1,4 +1,4 @@
-package silverstar.gold.mytools.nsetedscrollview
+package silverstar.gold.mytools.nestedscrollview
 
 import androidx.annotation.FloatRange
 import androidx.compose.animation.core.Animatable

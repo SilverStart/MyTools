@@ -1,16 +1,12 @@
-package silverstar.gold.mytools.nsetedscrollview
+package silverstar.gold.mytools.nestedscrollview
 
 import androidx.compose.foundation.gestures.*
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.input.pointer.*
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.unit.Constraints
-import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
 /**
